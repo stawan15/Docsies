@@ -64,6 +64,69 @@ body {
 .visual-editor figcaption { text-align: center; color: #64748b; font-size: .875rem; }
 .code-dialog-backdrop { position: fixed; z-index: 50; inset: 0; display: grid; place-items: center; background: rgb(15 23 42 / 45%); padding: 1rem; }
 .code-dialog { width: min(42rem, 100%); max-height: calc(100vh - 2rem); overflow: auto; border-radius: 1rem; background: #fff; padding: 1.5rem; box-shadow: 0 24px 80px rgb(15 23 42 / 30%); }
+
+/* App chrome */
+.docs-shell { min-height: 100vh; background: #f8fafc; color: #0f172a; }
+.docs-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid #e2e8f0; background: rgb(255 255 255 / 92%); backdrop-filter: blur(14px); }
+.docs-header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1440px; margin: 0 auto; padding: .9rem 2rem; }
+.brand-link { display: inline-flex; align-items: center; gap: .65rem; color: #0f172a; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; }
+.brand-mark { display: inline-flex; width: 2rem; height: 2rem; color: #0891b2; }
+.brand-slash { color: #0891b2; }
+.header-actions { display: flex; align-items: center; gap: .75rem; }
+.theme-toggle { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 1px solid #cbd5e1; border-radius: .65rem; background: #fff; color: #334155; font-size: 1.15rem; transition: background .15s, border-color .15s; }
+.theme-toggle:hover { border-color: #67e8f9; background: #ecfeff; }
+.docs-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 3.5rem; max-width: 1440px; margin: 0 auto; padding: 2rem; }
+.docs-sidebar { position: sticky; top: 5rem; align-self: start; height: calc(100vh - 6.5rem); min-width: 0; overflow: hidden; }
+.sidebar-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: .75rem; }
+.eyebrow { color: #64748b; font-size: .7rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+.new-doc-link { color: #0891b2; font-size: .8rem; font-weight: 700; }
+.sidebar-search { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; border: 1px solid #cbd5e1; border-radius: .7rem; background: #fff; padding: .55rem .7rem; color: #64748b; }
+.sidebar-search:focus-within { border-color: #06b6d4; box-shadow: 0 0 0 3px rgb(34 211 238 / 15%); }
+.sidebar-search input { min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: #0f172a; font-size: .875rem; }
+.sidebar-search input::placeholder { color: #94a3b8; }
+.docs-nav { height: calc(100% - 5.2rem); overflow-y: auto; padding-right: .35rem; scrollbar-width: thin; }
+.doc-group + .doc-group { margin-top: 1.25rem; }
+.doc-category { margin: 0 .75rem .35rem; color: #94a3b8; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.doc-link { display: block; overflow: hidden; border-radius: .6rem; padding: .55rem .75rem; color: #475569; font-size: .9rem; text-overflow: ellipsis; white-space: nowrap; transition: background .15s, color .15s; }
+.doc-link:hover { background: #fff; color: #0891b2; }
+.empty-search { padding: .75rem; color: #94a3b8; font-size: .85rem; }
+.docs-main { min-width: 0; }
+.minimap-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: .75rem; }
+.minimap-toggle, .minimap-expand-button { display: grid; width: 1.7rem; height: 1.7rem; place-items: center; border: 1px solid #cbd5e1; border-radius: .45rem; background: #fff; color: #64748b; font-size: 1rem; line-height: 1; }
+.minimap-toggle:hover, .minimap-expand-button:hover { border-color: #67e8f9; color: #0891b2; }
+.minimap-rail { display: flex; min-height: 8rem; justify-content: center; border-left: 2px solid #cbd5e1; padding-top: .5rem; }
+.minimap-collapsed { width: 2rem; }
+
+/* Dark theme */
+html.dark body { background: #0b1120; color: #e2e8f0; }
+html.dark .docs-shell { background: #0b1120; color: #e2e8f0; }
+html.dark .docs-header { border-color: #1e293b; background: rgb(15 23 42 / 90%); }
+html.dark .brand-link, html.dark .markdown-content h1, html.dark .markdown-content h2, html.dark .markdown-content h3 { color: #f8fafc; }
+html.dark .theme-toggle { border-color: #334155; background: #1e293b; color: #fde68a; }
+html.dark .theme-toggle:hover { border-color: #67e8f9; background: #164e63; }
+html.dark .sidebar-search { border-color: #334155; background: #111827; }
+html.dark .sidebar-search input { color: #e2e8f0; }
+html.dark .doc-link { color: #cbd5e1; }
+html.dark .doc-link:hover { background: #1e293b; color: #67e8f9; }
+html.dark .doc-category, html.dark .eyebrow { color: #94a3b8; }
+html.dark .minimap-toggle, html.dark .minimap-expand-button { border-color: #334155; background: #1e293b; color: #cbd5e1; }
+html.dark .minimap-rail { border-color: #475569; }
+html.dark .markdown-content { color: #cbd5e1; }
+html.dark .markdown-content code:not(pre code) { background: #1e293b; color: #a5f3fc; }
+html.dark .markdown-content a { color: #67e8f9; }
+html.dark .markdown-content blockquote { color: #94a3b8; }
+html.dark .docs-main .bg-white, html.dark .docs-main .bg-slate-50 { background: #111827; }
+html.dark .docs-main .border-slate-200, html.dark .docs-main .border-slate-300 { border-color: #334155; }
+html.dark .docs-main input, html.dark .docs-main select, html.dark .docs-main textarea { border-color: #334155; background: #0f172a; color: #e2e8f0; }
+html.dark .docs-main .text-slate-900, html.dark .docs-main .text-slate-700 { color: #f1f5f9; }
+html.dark .docs-main .text-slate-600, html.dark .docs-main .text-slate-500 { color: #94a3b8; }
+
+@media (max-width: 900px) {
+  .docs-header-inner, .docs-layout { padding-right: 1rem; padding-left: 1rem; }
+  .docs-layout { display: block; }
+  .docs-sidebar { position: static; height: auto; margin-bottom: 2rem; }
+  .docs-nav { max-height: 18rem; }
+}
 .markdown-content code:not(pre code) { border-radius: .3rem; background: #e8eef5; padding: .18rem .4rem; color: #0f4c5c; font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace; font-size: .82em; letter-spacing: -0.03em; }
 .markdown-content img { margin: 1.5rem 0; max-width: 100%; border-radius: .75rem; }
 .markdown-content figure { margin: 2rem 0; }

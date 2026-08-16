@@ -11,8 +11,8 @@ export async function listDocs() {
 }
 
 export async function listDocLinks() {
-  const { rows } = await db.query("select title, slug from docs where is_published = true order by title");
-  return rows as { title: string; slug: string }[];
+  const { rows } = await db.query("select d.title, d.slug, c.name as category_name from docs d left join categories c on c.id = d.category_id where d.is_published = true order by c.name nulls last, d.title");
+  return rows as { title: string; slug: string; category_name: string | null }[];
 }
 
 export async function findDoc(slug: string) {
