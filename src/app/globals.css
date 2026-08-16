@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Noto Sans Thai", "Thonburi", -apple-system, BlinkMacSystemFont, "Segoe UI", "Leelawadee UI", Tahoma, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Noto Sans Thai", "Thonburi", -apple-system, BlinkMacSystemFont, "Segoe UI", "Leelawadee UI", Tahoma, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+}
+
+.markdown-content { max-width: 78ch; color: #334155; font-size: 1rem; line-height: 1.85; letter-spacing: 0; }
+.markdown-content h1, .markdown-content h2, .markdown-content h3 { color: #0f172a; scroll-margin-top: 2rem; font-weight: 600; line-height: 1.35; letter-spacing: 0; }
+.markdown-content h1 { margin: 0 0 1.5rem; font-size: clamp(1.8rem, 3.5vw, 2.3rem); }
+.markdown-content h2 { margin: 2.5rem 0 1rem; font-size: clamp(1.4rem, 2.5vw, 1.65rem); }
+.markdown-content h3 { margin: 2rem 0 .75rem; font-size: 1.18rem; }
+.markdown-content p, .markdown-content ul, .markdown-content ol, .markdown-content blockquote { margin: 1rem 0; }
+.markdown-content ul, .markdown-content ol { padding-left: 1.5rem; }
+.markdown-content ul { list-style: disc; }
+.markdown-content ol { list-style: decimal; }
+.markdown-content a { color: #0891b2; text-decoration: underline; text-underline-offset: 3px; }
+.markdown-content blockquote { border-left: 3px solid #67e8f9; padding-left: 1rem; color: #64748b; }
+.markdown-content pre { margin: 1.75rem 0; overflow-x: auto; border: 1px solid #1e293b; border-radius: .75rem; background: #0f172a; color: #e2e8f0; padding: 1.1rem 1.25rem; font-family: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: .86rem; line-height: 1.8; letter-spacing: -0.02em; box-shadow: 0 12px 28px rgb(15 23 42 / 12%); }
+.markdown-content pre code { background: transparent; padding: 0; font-family: inherit; font-size: inherit; }
+.markdown-content pre[data-language] { position: relative; padding-top: 2.5rem; }
+.markdown-content pre[data-language]::before { position: absolute; top: .65rem; left: 1.25rem; color: #94a3b8; content: attr(data-language); font-family: Arial, Helvetica, sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.code-block { position: relative; }
+.copy-code-button { position: absolute; z-index: 1; top: .65rem; right: .75rem; border: 1px solid #475569; border-radius: .375rem; background: #1e293b; color: #cbd5e1; padding: .3rem .55rem; font-family: Arial, Helvetica, sans-serif; font-size: .7rem; font-weight: 700; transition: background .15s, color .15s; }
+.copy-code-button:hover { background: #334155; color: #fff; }
+.visual-editor-shell { overflow: hidden; }
+.visual-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; padding: .75rem; }
+.visual-toolbar button, .visual-select { border: 1px solid #cbd5e1; border-radius: .45rem; background: #fff; padding: .4rem .65rem; color: #334155; font-size: .8rem; font-weight: 700; }
+.visual-toolbar button:hover, .visual-select:hover { border-color: #67e8f9; background: #ecfeff; color: #0e7490; }
+.visual-select { font-weight: 500; }
+.toolbar-divider { width: 1px; height: 1.5rem; background: #cbd5e1; margin: 0 .25rem; }
+.visual-editor { min-height: 28rem; padding: 1.35rem 1.25rem; outline: none; color: #334155; font-family: "Noto Sans Thai", "Thonburi", -apple-system, BlinkMacSystemFont, "Segoe UI", "Leelawadee UI", Tahoma, sans-serif; font-size: 1rem; line-height: 1.85; letter-spacing: 0; }
+.visual-editor:focus { box-shadow: inset 0 0 0 2px #cffafe; }
+.visual-editor h1, .visual-editor h2, .visual-editor h3 { color: #0f172a; font-weight: 600; line-height: 1.35; }
+.visual-editor h1 { margin: 0 0 1.5rem; font-size: 2rem; }
+.visual-editor h2 { margin: 2rem 0 1rem; font-size: 1.5rem; }
+.visual-editor h3 { margin: 1.5rem 0 .75rem; font-size: 1.2rem; }
+.visual-editor pre { overflow-x: auto; border-radius: .75rem; background: #0f172a; color: #e2e8f0; padding: 1rem; font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace; font-size: .86rem; line-height: 1.8; letter-spacing: -0.02em; }
+.visual-editor figure { margin: 1.5rem 0; }
+.visual-editor img { max-width: 100%; border-radius: .75rem; }
+.visual-editor figcaption { text-align: center; color: #64748b; font-size: .875rem; }
+.code-dialog-backdrop { position: fixed; z-index: 50; inset: 0; display: grid; place-items: center; background: rgb(15 23 42 / 45%); padding: 1rem; }
+.code-dialog { width: min(42rem, 100%); max-height: calc(100vh - 2rem); overflow: auto; border-radius: 1rem; background: #fff; padding: 1.5rem; box-shadow: 0 24px 80px rgb(15 23 42 / 30%); }
+.markdown-content code:not(pre code) { border-radius: .3rem; background: #e8eef5; padding: .18rem .4rem; color: #0f4c5c; font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace; font-size: .82em; letter-spacing: -0.03em; }
+.markdown-content img { margin: 1.5rem 0; max-width: 100%; border-radius: .75rem; }
+.markdown-content figure { margin: 2rem 0; }
+.markdown-content figcaption { color: #64748b; font-size: .875rem; text-align: center; }
+.markdown-content [data-text-size="small"] { font-size: .875rem; }
+.markdown-content [data-text-size="normal"] { font-size: 1rem; }
+.markdown-content [data-text-size="large"] { font-size: 1.35rem; line-height: 1.6; }
+.markdown-content h1 > a, .markdown-content h2 > a, .markdown-content h3 > a { color: inherit; text-decoration: none; }
+.markdown-content h1 > a:hover, .markdown-content h2 > a:hover, .markdown-content h3 > a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
